@@ -23,7 +23,7 @@ def read_requirements():
 
 setup(
     name="stable-stats",
-    version="0.1.2",
+    version="0.1.4",
     author="Christopher Ren",
     author_email="chris.ren@emory.edu",
     description="A Python package for beautifying statistical outputs into clean tables",

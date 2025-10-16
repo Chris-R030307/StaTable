@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stable-stats"
-version = "0.1.2"
+version = "0.1.4"
 description = "A Python package for beautifying statistical outputs into clean tables"
 readme = "README.md"
 license = {file = "LICENSE"}
