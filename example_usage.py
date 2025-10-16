@@ -99,7 +99,7 @@ def main():
     # Use the t-test result from earlier
     print("HTML output (first 500 characters):")
     html_output = stable_ttest.to_html(title="T-test Results")
-    print(html_output[:500] + "...")
+    print(html_output)
     print("\n")
     
     # # Export to Excel (commented out to avoid creating files in example)
@@ -137,3 +137,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
