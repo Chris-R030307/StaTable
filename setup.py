@@ -23,7 +23,7 @@ def read_requirements():
 
 setup(
     name="stable-stats",
-    version="0.1.2",
+    version="0.1.3",
     author="Christopher Ren",
     author_email="chris.ren@emory.edu",
     description="A Python package for beautifying statistical outputs into clean tables",
@@ -37,14 +37,13 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Topic :: Scientific/Engineering :: Mathematics",
         "Topic :: Scientific/Engineering :: Information Analysis",
     ],
-    python_requires=">=3.8",
+    python_requires=">=3.9",
     install_requires=read_requirements(),
     extras_require={
         "dev": [
