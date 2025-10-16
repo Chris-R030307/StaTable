@@ -3,7 +3,7 @@ Utility functions for the Stable package.
 """
 
 import re
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 
 def detect_test_type(result: Any) -> str:
@@ -111,7 +111,7 @@ def format_effect_size(effect_size: float, effect_type: str = "cohen_d") -> str:
     return f"{effect_size:.3f}"
 
 
-def format_confidence_interval(ci_lower, ci_upper, confidence: float = 0.95) -> str:
+def format_confidence_interval(ci_lower: Union[float, List[float]], ci_upper: Union[float, List[float]], confidence: float = 0.95) -> str:
     """
     Format confidence interval.
     

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "stable-stats"
-version = "0.1.1"
+version = "0.1.2"
 description = "A Python package for beautifying statistical outputs into clean tables"
 readme = "README.md"
 license = {file = "LICENSE"}
@@ -99,7 +99,7 @@ line_length = 88
 known_first_party = ["stable"]
 
 [tool.mypy]
-python_version = "3.7"
+python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true

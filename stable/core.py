@@ -2,7 +2,7 @@
 Core functionality for the Stable package.
 """
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 from .adapters import ScipyAdapter, StatsmodelsAdapter
 from .exporters import MarkdownExporter, ExcelExporter, HTMLExporter
 from .utils import validate_input, detect_test_type
@@ -28,8 +28,8 @@ class Stable:
         
         self.original_result = result
         self.test_type = detect_test_type(result)
-        self._standardized_data = None
-        self._adapter = None
+        self._standardized_data: Optional[Dict[str, Any]] = None
+        self._adapter: Optional[Union[ScipyAdapter, StatsmodelsAdapter]] = None
         
         # Initialize appropriate adapter
         self._initialize_adapter()
@@ -55,7 +55,7 @@ class Stable:
             Dictionary with standardized statistical results
         """
         if self._standardized_data is None:
-            if self._adapter:
+            if self._adapter is not None:
                 self._standardized_data = self._adapter.to_standardized()
             else:
                 raise RuntimeError("No adapter available for this result type")
@@ -100,7 +100,7 @@ class Stable:
         exporter = HTMLExporter(self.standardized_data)
         return exporter.export(title=title, include_css=include_css)
     
-    def to_dataframe(self):
+    def to_dataframe(self) -> Any:
         """
         Export results to pandas DataFrame.
         
@@ -117,7 +117,7 @@ class Stable:
         Returns:
             String summary of the test
         """
-        if self._adapter:
+        if self._adapter is not None:
             return self._adapter.get_summary()
         return f"Test type: {self.test_type}"
     
@@ -128,7 +128,7 @@ class Stable:
         Returns:
             True if supported, False otherwise
         """
-        if self._adapter:
+        if self._adapter is not None:
             return self._adapter.is_supported()
         return False
     
@@ -139,7 +139,8 @@ class Stable:
         Returns:
             Test name string
         """
-        return self.standardized_data.get('test_name', 'Unknown Test')
+        test_name = self.standardized_data.get('test_name', 'Unknown Test')
+        return str(test_name)
     
     def get_statistic(self) -> Optional[Union[float, Dict[str, float]]]:
         """
@@ -231,7 +232,7 @@ class Stable:
         return f"Stable({self.get_test_name()}, {self.test_type})"
     
     @classmethod
-    def from_ttest(cls, group1, group2, **kwargs):
+    def from_ttest(cls, group1: Any, group2: Any, **kwargs: Any) -> 'Stable':
         """
         Create Stable instance from a t-test.
         
@@ -248,7 +249,7 @@ class Stable:
         return cls(result)
     
     @classmethod
-    def from_anova(cls, *groups, **kwargs):
+    def from_anova(cls, *groups: Any, **kwargs: Any) -> 'Stable':
         """
         Create Stable instance from ANOVA.
         
@@ -264,7 +265,7 @@ class Stable:
         return cls(result)
     
     @classmethod
-    def from_chi2(cls, observed, expected=None, **kwargs):
+    def from_chi2(cls, observed: Any, expected: Optional[Any] = None, **kwargs: Any) -> 'Stable':
         """
         Create Stable instance from chi-square test.
         
@@ -284,7 +285,7 @@ class Stable:
         return cls(result)
     
     @classmethod
-    def from_regression(cls, model_result):
+    def from_regression(cls, model_result: Any) -> 'Stable':
         """
         Create Stable instance from a regression model result.
         

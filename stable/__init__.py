@@ -20,7 +20,7 @@ Example usage:
 
 from .core import Stable
 
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __author__ = "Christopher Ren"
 __email__ = "chris.ren@emory.edu"
 
