@@ -37,7 +37,7 @@ pip install -e ".[dev,test]"
 ### Dependencies
 
 The package requires:
-- Python 3.7+
+- Python 3.8+
 - numpy >= 1.19.0
 - pandas >= 1.3.0
 - scipy >= 1.7.0
