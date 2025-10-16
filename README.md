@@ -15,7 +15,7 @@ A Python package for beautifying statistical outputs from scipy, statsmodels, an
 ### From PyPI (recommended)
 
 ```bash
-pip install stable
+pip install stable-stats
 ```
 
 ### From source

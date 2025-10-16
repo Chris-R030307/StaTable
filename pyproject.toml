@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "stable"
+name = "stable-stats"
 version = "0.1.0"
 description = "A Python package for beautifying statistical outputs into clean tables"
 readme = "README.md"

@@ -102,9 +102,9 @@ def main():
     print(html_output[:500] + "...")
     print("\n")
     
-    # Export to Excel (commented out to avoid creating files in example)
-    stable_ttest.to_excel("ttest_results.xlsx")
-    print("Excel file created: ttest_results.xlsx")
+    # # Export to Excel (commented out to avoid creating files in example)
+    # stable_ttest.to_excel("ttest_results.xlsx")
+    # print("Excel file created: ttest_results.xlsx")
     
     # # Get summary
     # print("Summary:")

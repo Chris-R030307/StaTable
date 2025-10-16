@@ -22,7 +22,7 @@ def read_requirements():
     return []
 
 setup(
-    name="stable",
+    name="stable-stats",
     version="0.1.0",
     author="Christopher Ren",
     author_email="chris.ren@emory.edu",
